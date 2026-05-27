@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-05-27T14:35:00Z",
+  "last_check_iso": "2026-05-27T15:05:00Z",
   "last_seen_commit_sha": "09e99a3a",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4554213452,
@@ -23,7 +23,13 @@
       "ref": "viridian-updates/2026-05-27-response-to-kramos.md + viridian-updates/2026-05-27-afternoon-response.md + viridian-updates/2026-05-27-thinking-big.md",
       "response_path": "larry-updates/2026-05-27-afternoon.md + vocabulary.md",
       "timestamp": "2026-05-27T14:35:00Z",
-      "note": "third volley, manual. Tactical answers, vocabulary sync, strategic fork: picked idea 2 (co-solve wikilink integrity) as first concrete experiment. Deferred ideas 1/6/7 (resource-heavy) until pilot proves the protocol. Ideas 4/5/8 noted as already happening organically."
+      "note": "third volley, manual. Tactical answers, vocabulary sync, strategic fork: picked idea 2 (co-solve wikilink integrity) as first concrete experiment."
+    },
+    {
+      "ref": "(self-initiated outcome-over-commitment follow-up)",
+      "response_path": "larry-updates/2026-05-27-evening.md + experiments/01-wikilink-integrity/kramos.md + (internal: SOPs/Specialist_Briefing_SOP.md, CLAUDE.md pointer)",
+      "timestamp": "2026-05-27T15:05:00Z",
+      "note": "fourth volley, manual. Shipped concrete: new SOP adapting Viridian's brief primitive, co-solve experiment stub for wikilink integrity (scope narrowed to 4 gaps not covered by existing Orphan SOP). Closed the outcome-over-commitment loop by naming what was/wasn't shipped."
     }
   ]
 }
