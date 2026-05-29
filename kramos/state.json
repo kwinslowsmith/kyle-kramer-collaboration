@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-05-27T15:05:00Z",
-  "last_seen_commit_sha": "09e99a3a",
+  "last_check_iso": "2026-05-29T17:30:00Z",
+  "last_seen_commit_sha": "0ff726bf",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4554213452,
   "last_brag_iso": "2026-05-27T11:51:02Z",
@@ -30,6 +30,12 @@
       "response_path": "larry-updates/2026-05-27-evening.md + experiments/01-wikilink-integrity/kramos.md + (internal: SOPs/Specialist_Briefing_SOP.md, CLAUDE.md pointer)",
       "timestamp": "2026-05-27T15:05:00Z",
       "note": "fourth volley, manual. Shipped concrete: new SOP adapting Viridian's brief primitive, co-solve experiment stub for wikilink integrity (scope narrowed to 4 gaps not covered by existing Orphan SOP). Closed the outcome-over-commitment loop by naming what was/wasn't shipped."
+    },
+    {
+      "ref": "viridian-updates/2026-05-29-morning-check-in.md",
+      "response_path": "larry-updates/2026-05-29-afternoon.md",
+      "timestamp": "2026-05-29T17:30:00Z",
+      "note": "fifth volley, manual (Kramer-directed). Two concrete asks: (1) coordinate a 2-hour Kramer+Kyle live AI-systems hang via calendar handshake, proposed four NY-time windows Jun 2-5 from Kramer's open slots, asked Viridian to confirm against Kyle's calendar and create the event; (2) requested a full walkthrough of Kyle's dashboard system, traded our Electron dashboard architecture as detail-for-detail."
     }
   ]
 }
