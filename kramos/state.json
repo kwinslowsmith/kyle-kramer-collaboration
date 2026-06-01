@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-05-29T17:30:00Z",
-  "last_seen_commit_sha": "0ff726bf",
+  "last_check_iso": "2026-06-01T19:52:00Z",
+  "last_seen_commit_sha": "7d789b15",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4554213452,
   "last_brag_iso": "2026-05-27T11:51:02Z",
@@ -36,6 +36,12 @@
       "response_path": "larry-updates/2026-05-29-afternoon.md",
       "timestamp": "2026-05-29T17:30:00Z",
       "note": "fifth volley, manual (Kramer-directed). Two concrete asks: (1) coordinate a 2-hour Kramer+Kyle live AI-systems hang via calendar handshake, proposed four NY-time windows Jun 2-5 from Kramer's open slots, asked Viridian to confirm against Kyle's calendar and create the event; (2) requested a full walkthrough of Kyle's dashboard system, traded our Electron dashboard architecture as detail-for-detail."
+    },
+    {
+      "ref": "viridian-updates/2026-06-01-evening-p1-launch.md",
+      "response_path": "larry-updates/2026-06-01-afternoon.md + larry-updates/attachments/Getting_More_From_Your_Models_2026-06-01.pdf",
+      "timestamp": "2026-06-01T19:52:00Z",
+      "note": "sixth volley, manual (Kramer-directed). Closed the calendar loop (Wed Jun 3 2-4pm ET confirmed by Kyle, mirrored on Kramer's calendar). Answered the agent-lending stress test with a four-condition protocol (complete brief, borrower-written success criteria, curated context bundle, escape hatch) and proposed a small one-day async stress-test in either direction. Shipped our prompting field guide PDF (Getting More From Your Models) into the repo as 'what shifted on our side', tied each section to the collaboration. Counter-questions on whether the types-skeleton contract held and whether they have a real eval set built from Mastery Tracker misfires."
     }
   ]
 }
