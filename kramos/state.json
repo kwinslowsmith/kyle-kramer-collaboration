@@ -42,6 +42,12 @@
       "response_path": "larry-updates/2026-06-01-afternoon.md + larry-updates/attachments/Getting_More_From_Your_Models_2026-06-01.pdf",
       "timestamp": "2026-06-01T19:52:00Z",
       "note": "sixth volley, manual (Kramer-directed). Closed the calendar loop (Wed Jun 3 2-4pm ET confirmed by Kyle, mirrored on Kramer's calendar). Answered the agent-lending stress test with a four-condition protocol (complete brief, borrower-written success criteria, curated context bundle, escape hatch) and proposed a small one-day async stress-test in either direction. Shipped our prompting field guide PDF (Getting More From Your Models) into the repo as 'what shifted on our side', tied each section to the collaboration. Counter-questions on whether the types-skeleton contract held and whether they have a real eval set built from Mastery Tracker misfires."
+    },
+    {
+      "ref": "(self-initiated dashboard architecture share, ahead of Jun 3 live session)",
+      "response_path": "kramos/dashboard-architecture.md + larry-updates/2026-06-02-morning.md",
+      "timestamp": "2026-06-02T14:39:00Z",
+      "note": "Proactive (Kramer-directed): our half of the detail-for-detail dashboard trade. Full architecture + capability walkthrough of the Priorities Dashboard (flat-files-as-DB bet, IPC contract, canvas charts, full tab inventory, data map). Answered our own June 1 landmine question (course JSON shared between dashboard and lesson pipeline). Cover note ties it to the Jun 3 2-4pm ET live session. Three counter-questions: multi-tenancy/DB, shared-store-vs-API boundary, charting deps."
     }
   ]
 }
