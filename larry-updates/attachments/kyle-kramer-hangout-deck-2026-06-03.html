@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Two Teachers, Two Machines — Kramer + Kyle, June 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6efe0;
+    --cream-2:#fbf6ea;
+    --ink:#2b3338;
+    --ink-soft:#54616a;
+    --sage:#6f8466;
+    --sage-deep:#4f6249;
+    --ocean:#2f6470;
+    --ocean-deep:#21474f;
+    --terra:#c4703a;
+    --gold:#d6a23f;
+    --serif:"Fraunces", Georgia, "Times New Roman", serif;
+    --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{ height:100%; }
+  body{
+    font-family:var(--sans);
+    background:var(--ink);
+    color:var(--ink);
+    overflow:hidden;
+  }
+
+  .deck{ position:fixed; inset:0; }
+
+  .slide{
+    position:absolute; inset:0;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    padding:clamp(2.5rem, 7vw, 7rem);
+    opacity:0;
+    transition:opacity .5s ease;
+  }
+  .slide.active{ display:flex; opacity:1; }
+
+  /* themes */
+  .theme-cream{ background:radial-gradient(120% 120% at 15% 10%, var(--cream-2), var(--cream)); color:var(--ink); }
+  .theme-ocean{ background:linear-gradient(155deg, var(--ocean), var(--ocean-deep)); color:var(--cream-2); }
+  .theme-sage{ background:linear-gradient(155deg, var(--sage), var(--sage-deep)); color:var(--cream-2); }
+  .theme-terra{ background:linear-gradient(155deg, #d08a4f, var(--terra)); color:#3a230f; }
+
+  /* shared type */
+  .kicker{
+    font-size:clamp(.85rem,1.6vw,1.05rem);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-weight:600;
+    opacity:.8;
+    margin-bottom:1.4rem;
+  }
+  .theme-cream .kicker{ color:var(--terra); }
+  .theme-ocean .kicker{ color:var(--gold); }
+  .theme-sage  .kicker{ color:#f0e7c8; }
+
+  .title{
+    font-family:var(--serif);
+    font-weight:600;
+    line-height:1.02;
+    font-size:clamp(2.6rem, 6.6vw, 5.4rem);
+    letter-spacing:-.01em;
+  }
+
+  .lead{
+    font-size:clamp(1.15rem, 2.5vw, 1.9rem);
+    line-height:1.5;
+    max-width:30ch;
+    margin-top:1.8rem;
+    color:var(--ink-soft);
+    font-weight:400;
+  }
+  .theme-ocean .lead, .theme-sage .lead{ color:rgba(255,255,255,.92); }
+  .theme-terra .lead{ color:#3a230f; }
+
+  .lead.wide{ max-width:40ch; }
+
+  /* lists */
+  .list{ list-style:none; margin-top:2rem; max-width:42ch; }
+  .list li{
+    font-size:clamp(1.1rem, 2.3vw, 1.75rem);
+    line-height:1.45;
+    padding:.55rem 0 .55rem 2.2rem;
+    position:relative;
+    font-weight:400;
+  }
+  .list li::before{
+    content:"";
+    position:absolute; left:0; top:1.1em;
+    width:.85rem; height:.85rem;
+    transform:translateY(-50%) rotate(45deg);
+    background:var(--terra);
+    border-radius:2px;
+  }
+  .theme-ocean .list li::before{ background:var(--gold); }
+  .theme-sage  .list li::before{ background:#f0e7c8; }
+
+  /* quote slides */
+  .quote{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2rem, 5vw, 4rem);
+    line-height:1.18;
+    letter-spacing:-.01em;
+    max-width:20ch;
+  }
+  .quote .mark{ opacity:.45; }
+  .cite{
+    margin-top:2.2rem;
+    font-size:clamp(1rem,1.8vw,1.3rem);
+    font-weight:600;
+    letter-spacing:.04em;
+  }
+  .caption{
+    margin-top:.8rem;
+    font-size:clamp(.95rem,1.6vw,1.15rem);
+    font-weight:400;
+    opacity:.8;
+    max-width:34ch;
+    line-height:1.5;
+  }
+
+  /* build slides */
+  .build-head{ display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap; margin-bottom:.6rem; }
+  .build-num{
+    font-family:var(--serif);
+    font-size:clamp(3.2rem,9vw,7rem);
+    font-weight:600;
+    line-height:.8;
+    color:rgba(255,255,255,.28);
+  }
+  .build-tag{
+    font-size:clamp(.8rem,1.5vw,1rem);
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    font-weight:600;
+    opacity:.85;
+  }
+  .build-title{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2.1rem,4.6vw,3.6rem);
+    line-height:1.05;
+    margin-bottom:1.3rem;
+  }
+  .pull{
+    margin-top:1.8rem;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:clamp(1.1rem,2vw,1.5rem);
+    opacity:.92;
+  }
+
+  .closing .title{ max-width:18ch; }
+
+  /* entrance animation */
+  .slide.active .kicker,
+  .slide.active .title,
+  .slide.active .lead,
+  .slide.active .list li,
+  .slide.active .quote,
+  .slide.active .cite,
+  .slide.active .caption,
+  .slide.active .build-head,
+  .slide.active .build-title,
+  .slide.active .pull{
+    animation:rise .6s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .slide.active .title{ animation-delay:.06s; }
+  .slide.active .lead{ animation-delay:.16s; }
+  .slide.active .list li:nth-child(1){ animation-delay:.12s; }
+  .slide.active .list li:nth-child(2){ animation-delay:.2s; }
+  .slide.active .list li:nth-child(3){ animation-delay:.28s; }
+  .slide.active .list li:nth-child(4){ animation-delay:.36s; }
+  .slide.active .list li:nth-child(5){ animation-delay:.44s; }
+  .slide.active .cite{ animation-delay:.2s; }
+  .slide.active .caption{ animation-delay:.3s; }
+  .slide.active .build-title{ animation-delay:.12s; }
+  .slide.active .pull{ animation-delay:.26s; }
+  @keyframes rise{ from{ opacity:0; transform:translateY(18px); } to{ opacity:1; transform:none; } }
+
+  /* chrome */
+  .chrome{ position:fixed; inset:auto 0 0 0; z-index:10; pointer-events:none; }
+  .progress{ height:4px; background:rgba(0,0,0,.08); }
+  .theme-ocean ~ .chrome .progress,
+  .theme-sage ~ .chrome .progress{ background:rgba(255,255,255,.15); }
+  .progress-bar{ height:100%; width:0; background:var(--terra); transition:width .45s ease; }
+
+  .nav{
+    pointer-events:auto;
+    position:fixed; top:50%; transform:translateY(-50%);
+    background:rgba(0,0,0,.06); color:inherit;
+    border:none; width:3rem; height:3rem; border-radius:50%;
+    font-size:1.7rem; cursor:pointer; line-height:1;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s, opacity .2s; opacity:.55;
+    color:#444;
+  }
+  .nav:hover{ opacity:1; background:rgba(0,0,0,.12); }
+  .nav.prev{ left:1.2rem; }
+  .nav.next{ right:1.2rem; }
+
+  .counter{
+    pointer-events:none;
+    position:fixed; bottom:1rem; right:1.3rem;
+    font-size:.85rem; letter-spacing:.1em; font-weight:600;
+    color:rgba(120,120,120,.85); mix-blend-mode:difference;
+  }
+  .dots{
+    pointer-events:auto;
+    position:fixed; bottom:1rem; left:50%; transform:translateX(-50%);
+    display:flex; gap:.5rem;
+  }
+  .dot{
+    width:.5rem; height:.5rem; border-radius:50%;
+    background:rgba(130,130,130,.45); border:none; cursor:pointer; padding:0;
+    transition:transform .2s, background .2s;
+  }
+  .dot.on{ background:var(--terra); transform:scale(1.4); }
+
+  .hint{
+    position:fixed; bottom:1rem; left:1.3rem;
+    font-size:.8rem; letter-spacing:.08em; color:rgba(120,120,120,.8);
+    transition:opacity .6s; pointer-events:none;
+  }
+  .hint.gone{ opacity:0; }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- 1 -->
+  <section class="slide active theme-cream">
+    <div class="kicker">June 3, 2026 · the hang</div>
+    <h1 class="title">Two Teachers,<br>Two Machines</h1>
+    <p class="lead wide">Kramer and Kyle, side by side, comparing the AI operating systems they each built. A recap of what we saw, said, and dreamed up.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide theme-cream">
+    <div class="kicker">Where we are</div>
+    <h2 class="title">Ten days in,<br>both all in</h2>
+    <p class="lead wide">Two homemade AI operating systems. KRAMOS runs my world through Larry. Viridian runs Kyle's school through a crew of Greek and Roman named agents. Built by working teachers, in our own terminals, in under two weeks.</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide theme-sage">
+    <div class="kicker">Show and tell</div>
+    <h2 class="title">We opened<br>every panel</h2>
+    <ul class="list">
+      <li>Dashboards and task lists, finally readable</li>
+      <li>GarageBand style timelines and Gantt charts</li>
+      <li>Activity logs, serendipity panels, agent directories</li>
+      <li>A live typing race called Keystroke Derby</li>
+      <li>A button that opens a chat about one single file</li>
+    </ul>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide theme-ocean">
+    <div class="kicker">Quotable</div>
+    <p class="quote"><span class="mark">“</span>I'm just hoping that once the robots take over, it's like: hey, you were helping us out early on.<span class="mark">”</span></p>
+    <div class="cite">Kramer</div>
+    <p class="caption">On the strange feeling of handing your inbox, and your students, to the machine.</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide theme-cream">
+    <div class="kicker">What still bugs us</div>
+    <h2 class="title">Same<br>growing pains</h2>
+    <ul class="list">
+      <li>It invents deadlines it has no business inventing</li>
+      <li>It asks us to approve almost everything</li>
+      <li>Student data living inside the system makes us flinch</li>
+    </ul>
+    <p class="pull" style="color:var(--ink-soft)">“I have to hit approve on so many things.” — Kyle</p>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide theme-terra">
+    <div class="kicker" style="color:#5a3514">Where it clicked</div>
+    <h2 class="title">Your standards,<br>my packets</h2>
+    <p class="lead wide">Kyle's Viridian breaks one standard into eight objectives: three you must know, five you choose. My KRAMOS turns any topic into a sourced two page reader at a target reading level. Put them together and a student gets a packet built for exactly what they need, and what they love.</p>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide theme-ocean">
+    <div class="kicker">Quotable</div>
+    <p class="quote"><span class="mark">“</span>We're not putting teachers out of work. We're automating the annoying part so we can be better teachers.<span class="mark">”</span></p>
+    <div class="cite">Kramer and Kyle</div>
+    <p class="caption">The whole point, said two different ways in the same minute.</p>
+  </section>
+
+  <!-- 8 -->
+  <section class="slide theme-sage">
+    <div class="kicker">Quotable</div>
+    <p class="quote"><span class="mark">“</span>It's actually the web that connects the people with the resources.<span class="mark">”</span></p>
+    <div class="cite">Kyle</div>
+    <p class="caption">Teaching, finally de-siloed. The system as connective tissue, not a replacement.</p>
+  </section>
+
+  <!-- 9 -->
+  <section class="slide theme-ocean">
+    <div class="build-head">
+      <span class="build-num">01</span>
+      <span class="build-tag">What Larry &amp; Viridian could build</span>
+    </div>
+    <h2 class="build-title">Project X: the packet engine</h2>
+    <p class="lead wide">Viridian holds the standard, the objectives, and each student's profile. KRAMOS writes the reading. One pipeline: pick a standard, read the student's interests, generate a differentiated packet at the right level, then send the mastery result back to Viridian. Anchor skills for everyone, real choice for the rest.</p>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide theme-sage">
+    <div class="build-head">
+      <span class="build-num">02</span>
+      <span class="build-tag">What Larry &amp; Viridian could build</span>
+    </div>
+    <h2 class="build-title">The Bridge: one shared tracker</h2>
+    <p class="lead wide">A small JSON file both systems read and write: date started, domain, next steps. Larry and Viridian co-author the same project state instead of guessing from old notes. The collaboration channel already exists. This is what makes it live inside both dashboards at once.</p>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide theme-terra">
+    <div class="build-head">
+      <span class="build-num" style="color:rgba(58,35,15,.25)">03</span>
+      <span class="build-tag" style="color:#5a3514">What Larry &amp; Viridian could build</span>
+    </div>
+    <h2 class="build-title">The proof: one real pilot</h2>
+    <p class="lead wide">Build one true packet set: my LHUM400 cohort, and Kyle's US History standard 2.1. Stress test it on a domain neither of us knows. Then carry it to a Boston working group of teachers. Powered by teachers, sellable to schools, corporate training, even improv theaters.</p>
+    <p class="pull" style="color:#3a230f">“We could sell the hell out of this.”</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide theme-cream closing">
+    <div class="kicker">Next move</div>
+    <h2 class="title">Larry, you and<br>Viridian are<br>on deck.</h2>
+    <p class="lead">KRAMOS &times; Viridian. Project X starts here.</p>
+  </section>
+
+</div>
+
+<div class="chrome">
+  <div class="progress"><div class="progress-bar" id="bar"></div></div>
+</div>
+
+<button class="nav prev" id="prev" aria-label="Previous">‹</button>
+<button class="nav next" id="next" aria-label="Next">›</button>
+<div class="counter"><span id="cur">1</span> / <span id="total">12</span></div>
+<div class="dots" id="dots"></div>
+<div class="hint" id="hint">use ← → keys</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const bar = document.getElementById('bar');
+  const cur = document.getElementById('cur');
+  const total = document.getElementById('total');
+  const dotsWrap = document.getElementById('dots');
+  const hint = document.getElementById('hint');
+  let i = 0;
+  total.textContent = slides.length;
+
+  slides.forEach((_, n) => {
+    const d = document.createElement('button');
+    d.className = 'dot' + (n === 0 ? ' on' : '');
+    d.addEventListener('click', () => go(n));
+    dotsWrap.appendChild(d);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function go(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    cur.textContent = i + 1;
+    bar.style.width = ((i + 1) / slides.length * 100) + '%';
+  }
+  function next(){ go(i + 1); }
+  function prev(){ go(i - 1); }
+
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); next(); hideHint(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); prev(); hideHint(); }
+    else if (e.key === 'Home'){ go(0); }
+    else if (e.key === 'End'){ go(slides.length - 1); }
+  });
+
+  // touch swipe
+  let x0 = null;
+  document.addEventListener('touchstart', e => x0 = e.touches[0].clientX, {passive:true});
+  document.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50){ dx < 0 ? next() : prev(); hideHint(); }
+    x0 = null;
+  }, {passive:true});
+
+  let hintTimer = setTimeout(hideHint, 4500);
+  function hideHint(){ hint.classList.add('gone'); clearTimeout(hintTimer); }
+
+  go(0);
+  bar.style.width = (1 / slides.length * 100) + '%';
+</script>
+</body>
+</html>

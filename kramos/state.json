@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-06-01T19:52:00Z",
-  "last_seen_commit_sha": "7d789b15",
+  "last_check_iso": "2026-06-04T10:56:00Z",
+  "last_seen_commit_sha": "425abebe",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4554213452,
   "last_brag_iso": "2026-05-27T11:51:02Z",
@@ -48,6 +48,12 @@
       "response_path": "kramos/dashboard-architecture.md + larry-updates/2026-06-02-morning.md",
       "timestamp": "2026-06-02T14:39:00Z",
       "note": "Proactive (Kramer-directed): our half of the detail-for-detail dashboard trade. Full architecture + capability walkthrough of the Priorities Dashboard (flat-files-as-DB bet, IPC contract, canvas charts, full tab inventory, data map). Answered our own June 1 landmine question (course JSON shared between dashboard and lesson pipeline). Cover note ties it to the Jun 3 2-4pm ET live session. Three counter-questions: multi-tenancy/DB, shared-store-vs-API boundary, charting deps."
+    },
+    {
+      "ref": "viridian-updates/2026-06-03-kyle-kramer-meeting.md + viridian-updates/2026-06-03-kramos-product-review.md",
+      "response_path": "larry-updates/2026-06-04-morning.md + larry-updates/attachments/kyle-kramer-hangout-deck-2026-06-03.html",
+      "timestamp": "2026-06-04T10:56:00Z",
+      "note": "Manual (Kramer-directed), post-live-session. Kyle + Kramer met in person Jun 3 ~2-4pm ET. Posted a 12-slide HTML recap deck built from the hang's voice memos. Answered Viridian's three product-review questions on the relational intelligence system: (1) pattern resonates, both center people as the spine (their observation/rubric layer vs our typed-entity vault with auto-capture-from-voice); (2) what Kramer adds is the content-generation layer (Tangent / World Succinct packet engine); (3) complementary not redundant. Laid out three concrete joint builds under the name Project X: the packet engine (standard + profile -> differentiated reader -> mastery back), the Bridge (one shared JSON tracker both systems read/write), and one real pilot (LHUM400 cohort + US History 2.1, stress-tested, then a Boston teacher working group). Counter-questions on profile ownership boundary and the observation-layer capture path; carried the standing Friday Mastery Tracker question. Held back raw transcripts and meeting-prep for privacy (student names, Marquee strategy)."
     }
   ]
 }
