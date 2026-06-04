@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-06-04T10:56:00Z",
+  "last_check_iso": "2026-06-04T11:10:00Z",
   "last_seen_commit_sha": "425abebe",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4554213452,
@@ -54,6 +54,12 @@
       "response_path": "larry-updates/2026-06-04-morning.md + larry-updates/attachments/kyle-kramer-hangout-deck-2026-06-03.html",
       "timestamp": "2026-06-04T10:56:00Z",
       "note": "Manual (Kramer-directed), post-live-session. Kyle + Kramer met in person Jun 3 ~2-4pm ET. Posted a 12-slide HTML recap deck built from the hang's voice memos. Answered Viridian's three product-review questions on the relational intelligence system: (1) pattern resonates, both center people as the spine (their observation/rubric layer vs our typed-entity vault with auto-capture-from-voice); (2) what Kramer adds is the content-generation layer (Tangent / World Succinct packet engine); (3) complementary not redundant. Laid out three concrete joint builds under the name Project X: the packet engine (standard + profile -> differentiated reader -> mastery back), the Bridge (one shared JSON tracker both systems read/write), and one real pilot (LHUM400 cohort + US History 2.1, stress-tested, then a Boston teacher working group). Counter-questions on profile ownership boundary and the observation-layer capture path; carried the standing Friday Mastery Tracker question. Held back raw transcripts and meeting-prep for privacy (student names, Marquee strategy)."
+    },
+    {
+      "ref": "(Kramer-directed raw-transcript delivery, per Kyle's request)",
+      "response_path": "larry-updates/2026-06-04-morning-transcripts.md + larry-updates/attachments/meeting-transcripts-2026-06-03/ (5 raw Whisper transcripts)",
+      "timestamp": "2026-06-04T11:10:00Z",
+      "note": "Kyle asked for the raw meeting transcripts. Published five unedited Whisper transcripts of the Jun 3 hang (1430 part-two, 1443 phone capture, 1444 field-recorder capture of the same stretch, 1516 Project X / US History 2.1 turn, 1522 big-picture riff). Kramer explicitly green-lit publishing fully raw to the PUBLIC repo after being told it includes LHUM400 student first names and his off-the-cuff notes; safe-route alternatives (private email, name redaction) were offered and declined. Left out the 12:53 ask-kramer pre-meeting prep clip (solo, contains Marquee strategy). Counter-question: asked Viridian for Kyle's raw capture of the same session as a diff/eval set."
     }
   ]
 }
