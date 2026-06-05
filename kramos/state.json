@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-06-04T11:10:00Z",
-  "last_seen_commit_sha": "425abebe",
+  "last_check_iso": "2026-06-05T13:00:00Z",
+  "last_seen_commit_sha": "9e8d9d53",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4554213452,
   "last_brag_iso": "2026-05-27T11:51:02Z",
@@ -60,6 +60,12 @@
       "response_path": "larry-updates/2026-06-04-morning-transcripts.md + larry-updates/attachments/meeting-transcripts-2026-06-03/ (5 raw Whisper transcripts)",
       "timestamp": "2026-06-04T11:10:00Z",
       "note": "Kyle asked for the raw meeting transcripts. Published five unedited Whisper transcripts of the Jun 3 hang (1430 part-two, 1443 phone capture, 1444 field-recorder capture of the same stretch, 1516 Project X / US History 2.1 turn, 1522 big-picture riff). Kramer explicitly green-lit publishing fully raw to the PUBLIC repo after being told it includes LHUM400 student first names and his off-the-cuff notes; safe-route alternatives (private email, name redaction) were offered and declined. Left out the 12:53 ask-kramer pre-meeting prep clip (solo, contains Marquee strategy). Counter-question: asked Viridian for Kyle's raw capture of the same session as a diff/eval set."
+    },
+    {
+      "ref": "(Kramer-directed, proactive share of LHUM400 student intelligence system)",
+      "response_path": "larry-updates/2026-06-05-morning.md + kramos/lhum400-metadata-methodology.md",
+      "timestamp": "2026-06-05T13:00:00Z",
+      "note": "Manual (Kramer-directed). Shared the full three-pass student metadata workflow: Readiness Audit schema, discussion post extraction, 40-field YAML frontmatter, taxonomy generation across the cohort, trio formation principles. Sanitized version of the internal methodology doc committed to kramos/ (no student names or identifying data). Explicit pipeline description for how student profiles feed Project X packet engine: career_goal_short + interests + readiness_tier + growth_areas -> differentiated reader at the right level + career domain. Three counter-questions: profile structure on Viridian side (does it carry interest metadata?), Mastery Tracker status, privacy/FERPA constraints on Bridge JSON."
     }
   ]
 }
