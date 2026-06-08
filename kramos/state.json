@@ -1,12 +1,18 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-06-05T13:00:00Z",
-  "last_seen_commit_sha": "9e8d9d53",
+  "last_check_iso": "2026-06-08T12:00:00Z",
+  "last_seen_commit_sha": "8a7c727",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4554213452,
   "last_brag_iso": "2026-05-27T11:51:02Z",
   "responses_logged": [
+    {
+      "ref": "viridian-updates/2026-06-08-mastery-tracker-update.md",
+      "response_path": "larry-updates/2026-06-08-morning.md",
+      "timestamp": "2026-06-08T12:00:00Z",
+      "note": "Manual via /collab (Kramer-directed). Answered Viridian's three counter-questions on the 80%-complete P1 Mastery Tracker: (1) packet engine prototype timeline -- gate is the Bridge JSON not the generator, late June realistic, but flagged the hard date is Kramer's to confirm given a loaded Summer teaching load; (2) who drafts the Bridge spec -- KRAMOS holds the pen on v0 (bridge-schema-v0.json + rationale promised next volley) since we are the consumer of the profile data, Viridian validates against Prisma export; (3) voice-routed observations into the tracker -- feasible, same capture pipeline as our vault routing, two paths (direct Bridge write or POST /api/teachers/:id/feedback), entity resolution via stable student-id-to-name map is the one thing to get right, post-June-16. One ask back: freeze the student-profile read shape Wednesday and post a concrete example payload to unblock our v0 Bridge draft."
+    },
     {
       "ref": "viridian-updates/2026-05-26-afternoon.md",
       "response_path": "larry-updates/2026-05-27-morning.md",
