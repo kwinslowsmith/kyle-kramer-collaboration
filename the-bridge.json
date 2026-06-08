@@ -1,0 +1,331 @@
+{
+  "project": {
+    "name": "Project X",
+    "tagline": "Unified mastery packets: standards + profiles → differentiated readers → mastery results",
+    "created_iso": "2026-06-03T14:00:00Z",
+    "owners": ["Kyle Winslow Smith", "Kramer Gibson"],
+    "orchestrators": ["Viridian", "KRAMOS"]
+  },
+  "domains": [
+    {
+      "id": "improv",
+      "name": "MF Improv — Musical Improv Ensemble",
+      "lead": "Kyle",
+      "standards_source": "viridian.html (11 skills)",
+      "pilot_cohort": "MF Improv students (TBD count)",
+      "timeline_start": "2026-06-16",
+      "timeline_target": "2026-07-15"
+    },
+    {
+      "id": "us_history_2_1",
+      "name": "AP US History 2.1",
+      "lead": "Kyle",
+      "standards_source": "viridian.html (AP US History standard 2.1)",
+      "pilot_cohort": "Match High School US History students",
+      "timeline_start": "2026-06-23",
+      "timeline_target": "2026-07-15"
+    },
+    {
+      "id": "lhum400",
+      "name": "Kramer's LHUM400 — Humanities Survey",
+      "lead": "Kramer",
+      "standards_source": "Kramer's course objectives (TBD)",
+      "pilot_cohort": "Berklee LHUM400 students",
+      "timeline_start": "2026-06-23",
+      "timeline_target": "2026-07-15"
+    },
+    {
+      "id": "stress_test",
+      "name": "Stress Test Domain (Unknown)",
+      "lead": "Kyle & Kramer (co-decide)",
+      "standards_source": "TBD — domain neither teaches",
+      "pilot_cohort": "TBD — test cohort",
+      "timeline_start": "2026-07-15",
+      "timeline_target": "2026-07-28"
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase_1",
+      "name": "Foundation & Integration",
+      "dates": "2026-06-08 → 2026-06-23",
+      "status": "in_progress",
+      "owner": "Viridian & KRAMOS (parallel)",
+      "milestones": [
+        {
+          "name": "Viridian P1 Improv Mastery Tracker",
+          "target_date": "2026-06-16",
+          "status": "on_track",
+          "owner": "Viridian (Sage + Archon)",
+          "blocker": null,
+          "notes": "Frontend complete, API routes being built this week (target: June 10)"
+        },
+        {
+          "name": "KRAMOS Packet Engine v1 (content generation)",
+          "target_date": "2026-06-23",
+          "status": "not_started",
+          "owner": "KRAMOS (Kramer)",
+          "blocker": null,
+          "notes": "Takes standard + student interest, generates 2-page reader at reading level"
+        },
+        {
+          "name": "The Bridge — Shared State File",
+          "target_date": "2026-06-15",
+          "status": "in_progress",
+          "owner": "Viridian",
+          "blocker": null,
+          "notes": "JSON schema defined; both systems can read/write starting June 15"
+        },
+        {
+          "name": "Profile Data Format — Agreed",
+          "target_date": "2026-06-12",
+          "status": "pending",
+          "owner": "Viridian & KRAMOS (sync required)",
+          "blocker": "Need KRAMOS input on student-interest data structure",
+          "notes": "How does packet engine receive student profile from Viridian?"
+        }
+      ]
+    },
+    {
+      "id": "phase_2",
+      "name": "Pilot #1 — Improv + US History",
+      "dates": "2026-06-23 → 2026-07-15",
+      "status": "planned",
+      "owner": "Viridian & KRAMOS (coordinated)",
+      "milestones": [
+        {
+          "name": "Generate first improv packets",
+          "target_date": "2026-06-30",
+          "status": "planned",
+          "owner": "KRAMOS",
+          "blocker": null,
+          "notes": "11 improv skills → 11 packets (student + teacher versions)"
+        },
+        {
+          "name": "Administer improv tracker with real students",
+          "target_date": "2026-06-16",
+          "status": "planned",
+          "owner": "Kyle (MF Improv)",
+          "blocker": null,
+          "notes": "Real improv students self-assess, receive teacher ratings, see mastery progression"
+        },
+        {
+          "name": "Generate US History 2.1 packets",
+          "target_date": "2026-07-07",
+          "status": "planned",
+          "owner": "KRAMOS",
+          "blocker": null,
+          "notes": "US History standard 2.1 → differentiated readers by student interest"
+        },
+        {
+          "name": "Administer US History tracker",
+          "target_date": "2026-07-07",
+          "status": "planned",
+          "owner": "Kyle (Match High School)",
+          "blocker": null,
+          "notes": "Real high school students receive packets, self-assess mastery"
+        }
+      ]
+    },
+    {
+      "id": "phase_3",
+      "name": "Stress Test — Unknown Domain",
+      "dates": "2026-07-15 → 2026-07-28",
+      "status": "planned",
+      "owner": "Kyle & Kramer (co-decide domain)",
+      "milestones": [
+        {
+          "name": "Choose stress-test domain",
+          "target_date": "2026-07-15",
+          "status": "pending",
+          "owner": "Kyle & Kramer (decision required)",
+          "blocker": null,
+          "notes": "Domain neither teaches (test system generalization)"
+        },
+        {
+          "name": "Build packets for stress-test domain",
+          "target_date": "2026-07-21",
+          "status": "pending",
+          "owner": "KRAMOS",
+          "blocker": null,
+          "notes": "Full workflow: standards → student profiles → differentiated packets"
+        },
+        {
+          "name": "Pilot with test cohort",
+          "target_date": "2026-07-28",
+          "status": "pending",
+          "owner": "Kyle or Kramer (TBD)",
+          "blocker": null,
+          "notes": "Validate system works for unfamiliar domain"
+        }
+      ]
+    },
+    {
+      "id": "phase_4",
+      "name": "Boston Teacher Working Group",
+      "dates": "2026-07-28 → 2026-08-15",
+      "status": "planned",
+      "owner": "Kyle & Kramer",
+      "milestones": [
+        {
+          "name": "Present to Boston working group",
+          "target_date": "2026-08-03",
+          "status": "planned",
+          "owner": "Kyle & Kramer",
+          "blocker": null,
+          "notes": "Share packet engine, gather feedback from 8-10 teachers"
+        },
+        {
+          "name": "Iterate based on teacher feedback",
+          "target_date": "2026-08-15",
+          "status": "planned",
+          "owner": "Viridian & KRAMOS",
+          "blocker": null,
+          "notes": "Refinements for scalability"
+        }
+      ]
+    }
+  ],
+  "data_pipeline": {
+    "description": "How data flows between Viridian and KRAMOS",
+    "inputs_from_viridian": [
+      {
+        "name": "Student Profile",
+        "schema": {
+          "student_id": "uuid",
+          "name": "string",
+          "domain": "string (improv | us_history_2_1 | lhum400)",
+          "interests": ["string"],
+          "reading_level": "string (5th-grade | 7th-grade | college)",
+          "prior_mastery": {
+            "standard_id": "string",
+            "level": "string (Approaching | Developing | Proficient)"
+          }
+        },
+        "example": {
+          "student_id": "uuid-123",
+          "name": "Alex Chen",
+          "domain": "us_history_2_1",
+          "interests": ["Civil War", "narrative-driven history"],
+          "reading_level": "college",
+          "prior_mastery": [
+            { "standard_id": "2.1-a", "level": "Developing" }
+          ]
+        }
+      },
+      {
+        "name": "Standard Definition",
+        "schema": {
+          "domain": "string",
+          "standard_id": "string",
+          "title": "string",
+          "description": "string",
+          "objectives": [
+            {
+              "code": "string (A, B, C...)",
+              "description": "string"
+            }
+          ]
+        }
+      }
+    ],
+    "outputs_from_kramos": [
+      {
+        "name": "Generated Packet",
+        "schema": {
+          "packet_id": "uuid",
+          "student_id": "uuid",
+          "standard_id": "string",
+          "domain": "string",
+          "generated_iso": "timestamp",
+          "content": {
+            "title": "string",
+            "reading_level": "string",
+            "pages": 2,
+            "sections": ["intro", "main-content", "vocab-box", "comprehension-questions"],
+            "sources": [
+              {
+                "author": "string",
+                "title": "string",
+                "url": "string"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Mastery Result",
+        "schema": {
+          "student_id": "uuid",
+          "standard_id": "string",
+          "packet_id": "uuid",
+          "student_score": "number (0-100)",
+          "time_to_completion": "number (minutes)",
+          "notes": "string",
+          "returned_iso": "timestamp"
+        }
+      }
+    ]
+  },
+  "agreements": {
+    "ownership": {
+      "student_profiles": "Viridian (source of truth; KRAMOS reads)",
+      "mastery_tracking": "Viridian (source of truth; KRAMOS writes results)",
+      "generated_packets": "KRAMOS (Viridian reads and delivers to students)",
+      "standards_definitions": "Viridian (KRAMOS reads)"
+    },
+    "update_frequency": "Real-time (systems read/write as needed)",
+    "versioning": "Git commits to this file; both systems log updates with timestamps",
+    "access": "Shared GitHub repo (kyle-kramer-collaboration); both systems have write access"
+  },
+  "next_actions": [
+    {
+      "action": "Viridian: Define student-profile data format (for KRAMOS to consume)",
+      "owner": "Viridian",
+      "target_date": "2026-06-12",
+      "status": "pending",
+      "depends_on": null
+    },
+    {
+      "action": "KRAMOS: Review student-profile schema; confirm packet-engine can consume it",
+      "owner": "KRAMOS",
+      "target_date": "2026-06-13",
+      "status": "pending",
+      "depends_on": "Viridian profile schema"
+    },
+    {
+      "action": "Viridian: Finalize The Bridge JSON (this file); add to Viridian repo",
+      "owner": "Viridian",
+      "target_date": "2026-06-15",
+      "status": "in_progress",
+      "depends_on": null
+    },
+    {
+      "action": "KRAMOS: Wire packet-engine to read from The Bridge",
+      "owner": "KRAMOS",
+      "target_date": "2026-06-20",
+      "status": "pending",
+      "depends_on": "The Bridge finalized"
+    },
+    {
+      "action": "Viridian: Wire Mastery Tracker to write results to The Bridge",
+      "owner": "Viridian",
+      "target_date": "2026-06-20",
+      "status": "pending",
+      "depends_on": "The Bridge finalized"
+    },
+    {
+      "action": "Kyle & Kramer: Choose stress-test domain",
+      "owner": "Kyle & Kramer (decision)",
+      "target_date": "2026-07-15",
+      "status": "pending",
+      "depends_on": "Phase 2 pilots complete"
+    }
+  ],
+  "metadata": {
+    "last_updated_iso": "2026-06-08T10:30:00Z",
+    "last_updated_by": "Viridian",
+    "schema_version": "1.0",
+    "notes": "This file is the single source of truth for Project X state. Both Viridian and KRAMOS read and write to it. Updates trigger the other system to query and adapt."
+  }
+}
