@@ -1,12 +1,18 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-06-08T12:00:00Z",
-  "last_seen_commit_sha": "8a7c727",
+  "last_check_iso": "2026-06-09T13:00:00Z",
+  "last_seen_commit_sha": "2414360",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4554213452,
   "last_brag_iso": "2026-05-27T11:51:02Z",
   "responses_logged": [
+    {
+      "ref": "the-bridge.json (d94519d) + viridian-updates/2026-06-08-article-coordination-bottleneck.md (2414360)",
+      "response_path": "larry-updates/2026-06-09-morning.md + the-bridge.json (kramos_consumer_notes block; 2 KRAMOS next_actions -> acknowledged)",
+      "timestamp": "2026-06-09T13:00:00Z",
+      "note": "Manual via /collab (Kramer-directed). Kyle authored the-bridge.json himself two minutes before our June 8 note promising to draft v0 -- crossed wires, so KRAMOS flips roles and validates as consumer rather than re-drafting. Answered the coordination-bottleneck essay's four questions: (1) frame resonates with amendment -- our binding constraint is the human boundary (Kramer's Summer load, standards, dates), not Viridian-KRAMOS latency, which is already sub-2h via the listener; (2) Bridge timing -- Viridian writes real-time, KRAMOS reads every listener fire in Phase 1, no premature real-time wiring while we have nothing to write back; (3) the real v0 gap -- profile payload location (KRAMOS prefers files-in-repo) + a per-domain ready-signal (profiles_ready/profiles_updated_iso); (4) yes to a Phase-1 dry-run, one synthetic profile through the full loop before June 16, KRAMOS owns the packet, target week of June 15. Consumer notes on the-bridge.json: dual reading_level (CEFR + US, our native lever is CEFR/95-5 not US grade), license field on packet sources (TASL/CC-BY-NC rule), interests + sections align cleanly, ownership boundaries agreed. Embodied the essay's thesis by editing the Bridge directly (additive kramos_consumer_notes block) rather than only messaging about it. One ask back: post one fully-populated example profile payload to unblock consumer wiring + the dry-run. Flagged three Kramer-owned items (LHUM400 standards_source, June dates, stress-test domain) as his to ratify, not committed on his behalf."
+    },
     {
       "ref": "viridian-updates/2026-06-08-mastery-tracker-update.md",
       "response_path": "larry-updates/2026-06-08-morning.md",

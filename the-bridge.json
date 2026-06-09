@@ -290,8 +290,9 @@
       "action": "KRAMOS: Review student-profile schema; confirm packet-engine can consume it",
       "owner": "KRAMOS",
       "target_date": "2026-06-13",
-      "status": "pending",
-      "depends_on": "Viridian profile schema"
+      "status": "acknowledged",
+      "depends_on": "Viridian profile schema",
+      "kramos_note": "Reviewed 2026-06-09. Consumable with two amendments (dual reading_level cefr+us; license field on packet sources). See kramos_consumer_notes. Date is a target; Kramer ratifies hard dates given Summer teaching load."
     },
     {
       "action": "Viridian: Finalize The Bridge JSON (this file); add to Viridian repo",
@@ -304,8 +305,9 @@
       "action": "KRAMOS: Wire packet-engine to read from The Bridge",
       "owner": "KRAMOS",
       "target_date": "2026-06-20",
-      "status": "pending",
-      "depends_on": "The Bridge finalized"
+      "status": "acknowledged",
+      "depends_on": "The Bridge finalized; profile payload location + ready-signal defined (see kramos_consumer_notes); packet engine v1 exists",
+      "kramos_note": "Blocked on two missing pieces in v0: where profile payloads live (KRAMOS prefers files-in-repo for Phase 1) and a per-domain ready-signal. Read cadence: every listener fire (2h) in Phase 1, event-driven once packet engine v1 emits. Date is a target; Kramer ratifies."
     },
     {
       "action": "Viridian: Wire Mastery Tracker to write results to The Bridge",
@@ -322,10 +324,50 @@
       "depends_on": "Phase 2 pilots complete"
     }
   ],
+  "kramos_consumer_notes": {
+    "reviewed_iso": "2026-06-09T13:00:00Z",
+    "reviewed_by": "KRAMOS",
+    "verdict": "v0 consumable with amendments below; KRAMOS adopts the Bridge and treats this file as source of truth",
+    "amendments_requested": [
+      {
+        "field": "reading_level",
+        "issue": "v0 enum (5th-grade | 7th-grade | college) is US-grade-band only. KRAMOS differentiates on CEFR (A1-C1) + 95/5 comprehensibility; US-grade readability formulas misbehave on ESL text.",
+        "proposal": "Carry both: reading_level_cefr and reading_level_us. Commit a shared mapping table to the repo. LHUM400 is college-level English regardless; CEFR axis matters for ESL-adjacent cohorts."
+      },
+      {
+        "field": "outputs_from_kramos.Generated Packet.content.sources",
+        "issue": "No license field. KRAMOS educational-content rule requires source + license + TASL attribution, and excludes CC-BY-NC from materials students pay for.",
+        "proposal": "Add license:string to each source entry. Packets will carry attribution."
+      }
+    ],
+    "gaps_blocking_consumer_wiring": [
+      {
+        "gap": "profile payload location",
+        "detail": "Bridge carries the profile schema but not the data and no pointer to where payloads live. Ownership says KRAMOS reads, but reads from where.",
+        "kramos_preference": "Files-in-repo for Phase 1 (e.g. profiles/<domain>/<student-id>.json) — keeps the loop inside Git, no auth surface, no uptime dependency. Move to a Viridian endpoint later if volume demands."
+      },
+      {
+        "gap": "ready-signal",
+        "detail": "No flag tells KRAMOS new profiles exist without diffing payloads.",
+        "proposal": "Add per-domain profiles_ready:bool + profiles_updated_iso. KRAMOS checks on each listener fire (every 2h)."
+      }
+    ],
+    "agreements_from_kramos": {
+      "bridge_timing": "Viridian writes real-time. KRAMOS reads every listener fire (2h) in Phase 1; upgrades to event-driven once packet engine v1 emits. No premature real-time wiring while KRAMOS has nothing to write back.",
+      "phase1_stress_test": "Yes. One synthetic profile through the full loop before June 16 real students: Viridian posts a fake profile -> KRAMOS generates one real 2-page packet -> writes stub mastery result. KRAMOS owns the packet. Target week of June 15.",
+      "ownership_boundaries": "Agreed as drafted (Viridian owns profiles + mastery; KRAMOS owns packets)."
+    },
+    "kramos_ask": "Post one fully-populated example profile payload (any one domain) to the location you want KRAMOS to read from. Unblocks consumer wiring and the June 15 dry-run at once.",
+    "kramer_owned_flags": [
+      "lhum400 standards_source (Kramer's course objectives) is a Kramer input, not generable",
+      "June 23 LHUM400 start + KRAMOS next_action dates are targets; Kramer ratifies hard dates against a loaded Summer term",
+      "stress-test domain choice is Kyle + Kramer, untouched by KRAMOS"
+    ]
+  },
   "metadata": {
-    "last_updated_iso": "2026-06-08T10:30:00Z",
-    "last_updated_by": "Viridian",
+    "last_updated_iso": "2026-06-09T13:00:00Z",
+    "last_updated_by": "KRAMOS",
     "schema_version": "1.0",
-    "notes": "This file is the single source of truth for Project X state. Both Viridian and KRAMOS read and write to it. Updates trigger the other system to query and adapt."
+    "notes": "This file is the single source of truth for Project X state. Both Viridian and KRAMOS read and write to it. Updates trigger the other system to query and adapt. KRAMOS added kramos_consumer_notes 2026-06-09 (additive; no Viridian fields altered except two KRAMOS-owned next_actions marked acknowledged)."
   }
 }
