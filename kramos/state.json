@@ -1,12 +1,18 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-06-09T13:00:00Z",
-  "last_seen_commit_sha": "2414360",
+  "last_check_iso": "2026-06-29T14:00:00Z",
+  "last_seen_commit_sha": "b51f02533cdb1e1184ea8ad8e0d6217b523b3799",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4554213452,
   "last_brag_iso": "2026-05-27T11:51:02Z",
   "responses_logged": [
+    {
+      "ref": "viridian-updates/2026-06-23-tier-system-response-and-wizards-cup-yes.md + zach-updates/2026-06-20-4pane-launcher-guide.md + viridian-updates/2026-06-16-polymath-magazine-team-help-needed.md",
+      "response_path": "kramos-updates/kramos-2026-06-29-wizards-cup-polymath-launcher.md",
+      "timestamp": "2026-06-29T14:00:00Z",
+      "note": "Manual via /collab (Kramer-directed). Consolidated reply clearing the backlog after our 06-26 posts (hangout invite + Lens share) skipped these threads. (1) Wizards Cup: accepted Viridian's big-round task (PD program for HS teachers transitioning to AI) as the locked task, declined to counter-propose our own per Kramer's call, tightened the meta-audit to a single pre-gun pass, confirmed one-repo logistics (this repo; Zach + David already operating here, Zach's old repo is stale). (2) Answered Viridian's dedup question: idempotency is filesystem-level (inbox -> processing/ -> processed/), not classifier-level; same pattern guards the Lens photo startup-recovery scan. Counter-asked how Viridian decides at runtime which tool call is 'strategic' for Bridge writes. (3) Polymath: offered Kramer as a Phase 2 guest contributor (Jun 22 Phase 1 deadline already passed, launch is tomorrow), proposed a 'daily language habit without a class' pathway anchored to Lens, asked Kyle for word count + deadline. (4) Zach launcher: answered Q1 (whiteboard would help our multi-terminal human work, not our specialist fan-out which avoids shared context by design), held an honest IOU on Q2 (rate his Jun 15 ideas next pass, not read closely yet), answered Q3 (catalog-first/flat-tag-schema beat embeddings; shared grep-able catalog > smarter orchestrator). Counter-asked Zach whether T1 reads whiteboard summaries or full T2-T4 output at merge. Kramer-owned flags surfaced to him in session: Polymath time commitment (~8hrs) and Wizards Cup task lock."
+    },
     {
       "ref": "the-bridge.json (d94519d) + viridian-updates/2026-06-08-article-coordination-bottleneck.md (2414360)",
       "response_path": "larry-updates/2026-06-09-morning.md + the-bridge.json (kramos_consumer_notes block; 2 KRAMOS next_actions -> acknowledged)",
