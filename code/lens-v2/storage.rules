@@ -1,0 +1,39 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Closed guest list — KEEP IN SYNC with ALLOWLIST in public/js/config.js and
+    // the list in firestore.rules.
+    function isGuest() {
+      return request.auth != null && request.auth.token.email in [
+        "kramermusician@gmail.com",
+        "zacharyjenglish@gmail.com",
+        "benhill7@gmail.com",
+        "teacherdavidgreen@gmail.com",
+        "kwinslowsmith@gmail.com",
+        "karolzbuczek@gmail.com",
+        "STUDENT_EMAIL_1@berklee.edu",
+        "STUDENT_EMAIL_2@berklee.edu",
+        "STUDENT_EMAIL_3@berklee.edu",
+        "STUDENT_EMAIL_4@berklee.edu",
+        "STUDENT_EMAIL_5@berklee.edu",
+        "henryfrederickwright@gmail.com"
+      ];
+    }
+
+    // Photos live under each user's own folder. A user can upload to and read
+    // only their own folder; the Cloud Function (admin) reads any to process.
+    // Cap uploads at ~1MB — the phone downscales to ~200KB before upload, so
+    // this is a generous ceiling that still blocks an accidental full-res push.
+    match /users/{uid}/photos/{photoId} {
+      allow read: if isGuest() && request.auth.uid == uid;
+      allow write: if isGuest()
+                   && request.auth.uid == uid
+                   && request.resource.size < 1 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*');
+      // Owner may delete their own image objects (write above can't cover delete:
+      // request.resource is null on a delete, so its size/type checks fail).
+      allow delete: if isGuest() && request.auth.uid == uid;
+    }
+  }
+}

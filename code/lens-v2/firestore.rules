@@ -1,0 +1,75 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // The closed guest list — the server-side gate that makes "sign in with
+    // Google" safe. Only these accounts can read/write anything. KEEP IN SYNC
+    // with ALLOWLIST in public/js/config.js and the list in storage.rules.
+    function isGuest() {
+      return request.auth != null && request.auth.token.email in [
+        "kramermusician@gmail.com",
+        "zacharyjenglish@gmail.com",
+        "benhill7@gmail.com",
+        "teacherdavidgreen@gmail.com",
+        "kwinslowsmith@gmail.com",
+        "karolzbuczek@gmail.com",
+        "STUDENT_EMAIL_1@berklee.edu",
+        "STUDENT_EMAIL_2@berklee.edu",
+        "STUDENT_EMAIL_3@berklee.edu",
+        "STUDENT_EMAIL_4@berklee.edu",
+        "STUDENT_EMAIL_5@berklee.edu",
+        "henryfrederickwright@gmail.com"
+      ];
+    }
+
+    // Admin gate — who may READ the shared Language Compendium. Keep in sync with
+    // ADMIN_EMAILS in public/js/config.js.
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == "kramermusician@gmail.com";
+    }
+
+    // The Language Compendium — a de-duped, anonymous pool of every user's
+    // generated vocab + grammar (NEVER their photos). Written ONLY by the Cloud
+    // Function (the admin SDK bypasses these rules); no client may ever write it.
+    // Readable by admin only.
+    match /compendium_words/{docId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+    match /compendium_grammar/{docId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    // Each user owns exactly their own photos subcollection.
+    // A signed-in user can read/list/create their own; nobody can read anyone
+    // else's. The Cloud Function runs as admin and bypasses these rules, so it
+    // can write the vocabulary back.
+    match /users/{uid}/photos/{photoId} {
+      allow read: if isGuest() && request.auth.uid == uid;
+
+      // Client may only CREATE a fresh queued record for itself. It cannot fake
+      // a `done` record (that would dodge the vision call) or write someone
+      // else's. Vocabulary fields are written only by the admin Function.
+      allow create: if isGuest()
+                    && request.auth.uid == uid
+                    && request.resource.data.status == 'queued'
+                    && request.resource.data.uid == uid;
+
+      // Clients never UPDATE server-written vocab (that would dodge the vision
+      // call). DELETE is allowed for the owner only — a user can clear their own
+      // photos to start fresh; nobody can touch anyone else's.
+      allow update: if false;
+      allow delete: if isGuest() && request.auth.uid == uid;
+    }
+
+    // Quiz results — one doc per word the user has been tested on (id is
+    // `lang__word`). The owner reads and writes these freely; the client tracks
+    // its own recall stats here (seen / correct / streak / lastSeen). This is
+    // the per-word grade store the SRS scheduler and leaderboard will read.
+    // Self-owned only — nobody can see or touch anyone else's recall record.
+    match /users/{uid}/reviews/{reviewId} {
+      allow read, write: if isGuest() && request.auth.uid == uid;
+    }
+  }
+}

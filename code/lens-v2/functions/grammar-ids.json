@@ -1,0 +1,764 @@
+{
+"en": [
+{
+"id": "copula_identity",
+"point": "be (am/is/are)",
+"cefr": "A1"
+},
+{
+"id": "existential",
+"point": "there is / there are",
+"cefr": "A1"
+},
+{
+"id": "noun_number",
+"point": "singular & plural nouns",
+"cefr": "A1"
+},
+{
+"id": "articles",
+"point": "articles a/an/the",
+"cefr": "A1"
+},
+{
+"id": "present_simple",
+"point": "present simple - habits & facts",
+"cefr": "A1"
+},
+{
+"id": "present_continuous",
+"point": "present continuous",
+"cefr": "A1"
+},
+{
+"id": "prepositions_place",
+"point": "prepositions of place",
+"cefr": "A1"
+},
+{
+"id": "possessives",
+"point": "possessives (my/your; 's)",
+"cefr": "A1"
+},
+{
+"id": "adjective_description",
+"point": "adjectives - describing",
+"cefr": "A1"
+},
+{
+"id": "modal_ability",
+"point": "can / can't - ability",
+"cefr": "A2"
+},
+{
+"id": "count_noncount",
+"point": "count/noncount + some/any",
+"cefr": "A2"
+},
+{
+"id": "quantifiers",
+"point": "quantifiers - many/much/a lot of",
+"cefr": "A2"
+},
+{
+"id": "past_simple",
+"point": "past simple - regular verbs",
+"cefr": "A2"
+},
+{
+"id": "past_simple_irregular",
+"point": "past simple - irregular verbs",
+"cefr": "A2"
+},
+{
+"id": "past_continuous",
+"point": "past continuous",
+"cefr": "A2"
+},
+{
+"id": "comparatives",
+"point": "comparatives (-er / more)",
+"cefr": "A2"
+},
+{
+"id": "superlatives",
+"point": "superlatives (-est / most)",
+"cefr": "A2"
+},
+{
+"id": "future_going_to",
+"point": "going to - plans & predictions",
+"cefr": "A2"
+},
+{
+"id": "future_will",
+"point": "will - future",
+"cefr": "B1"
+},
+{
+"id": "present_perfect",
+"point": "present perfect - experience/result",
+"cefr": "B1"
+},
+{
+"id": "adverbs_frequency",
+"point": "adverbs of frequency",
+"cefr": "B1"
+},
+{
+"id": "imperatives",
+"point": "imperatives - instructions",
+"cefr": "B1"
+},
+{
+"id": "modal_obligation",
+"point": "modals of obligation (have to/must/should)",
+"cefr": "B1"
+},
+{
+"id": "gerunds_infinitives",
+"point": "gerunds & infinitives",
+"cefr": "B1"
+},
+{
+"id": "relative_clauses",
+"point": "relative clauses",
+"cefr": "B2"
+}
+],
+"ko": [
+{
+"id": "copula_identity",
+"point": "이것은 [명사]이에요/예요",
+"cefr": "A1"
+},
+{
+"id": "existential",
+"point": "[명사]이/가 있어요",
+"cefr": "A1"
+},
+{
+"id": "particle_topic",
+"point": "[명사]은/는 topic particle",
+"cefr": "A1"
+},
+{
+"id": "particle_object",
+"point": "[명사]을/를 [동사]해요 object particle",
+"cefr": "A1"
+},
+{
+"id": "location_static",
+"point": "[장소]에 있어요 static location",
+"cefr": "A1"
+},
+{
+"id": "location_action",
+"point": "[장소]에서 [동사]해요 action at place",
+"cefr": "A2"
+},
+{
+"id": "adjective_description",
+"point": "[형용사]-아요/어요 descriptive verb",
+"cefr": "A1"
+},
+{
+"id": "negation",
+"point": "안 [동사]해요 negation",
+"cefr": "A2"
+},
+{
+"id": "prepositions_place",
+"point": "[명사] 안에/위에/옆에 spatial position",
+"cefr": "A2"
+},
+{
+"id": "classifiers_counters",
+"point": "[숫자] [단위 명사] number + counter",
+"cefr": "A2"
+},
+{
+"id": "past_simple",
+"point": "[동사]-았어요/었어요 past tense",
+"cefr": "A2"
+},
+{
+"id": "modal_desire",
+"point": "[동사]-고 싶어요 want to do",
+"cefr": "A2"
+},
+{
+"id": "sequencing",
+"point": "[동사]-고 [동사] and then / listing",
+"cefr": "A2"
+},
+{
+"id": "comparatives",
+"point": "[명사]보다 더 [형용사] comparison",
+"cefr": "B1"
+},
+{
+"id": "future_will",
+"point": "[동사]-(으)ㄹ 거예요 future/intention",
+"cefr": "B1"
+},
+{
+"id": "cause_result",
+"point": "[동사]-아서/어서 so / because",
+"cefr": "B1"
+},
+{
+"id": "modal_ability",
+"point": "[동사]-(으)ㄹ 수 있어요/없어요 can/cannot",
+"cefr": "B1"
+},
+{
+"id": "relative_clauses",
+"point": "[동사]-(으)ㄴ/는 [명사] relative clause",
+"cefr": "B1"
+},
+{
+"id": "conditional",
+"point": "[동사]-(으)면 if / when",
+"cefr": "B1"
+},
+{
+"id": "modal_obligation",
+"point": "[동사]-아야/어야 해요 have to / must",
+"cefr": "B1"
+},
+{
+"id": "present_continuous",
+"point": "[동사]-고 있어요 present progressive",
+"cefr": "B1"
+},
+{
+"id": "superlatives",
+"point": "[명사] 중에서 제일 [형용사] superlative",
+"cefr": "B1"
+},
+{
+"id": "honorifics",
+"point": "[동사]-(으)신다 subject honorifics",
+"cefr": "B2"
+},
+{
+"id": "hedging_inference",
+"point": "[동사]-(으)ㄴ 것 같아요 inference",
+"cefr": "B2"
+},
+{
+"id": "politeness_formal",
+"point": "[동사]-(스)ㅂ니다 formal style",
+"cefr": "B2"
+}
+],
+"ja": [
+{
+"id": "copula_identity",
+"point": "これは本です",
+"cefr": "A1"
+},
+{
+"id": "existential",
+"point": "本があります",
+"cefr": "A1"
+},
+{
+"id": "existential_animate",
+"point": "猫がいます",
+"cefr": "A1"
+},
+{
+"id": "possessives",
+"point": "机の上 (の possessive/location)",
+"cefr": "A1"
+},
+{
+"id": "adjective_description",
+"point": "これは赤いです (い-adjective)",
+"cefr": "A1"
+},
+{
+"id": "adjective_na",
+"point": "きれいな花 (な-adjective)",
+"cefr": "A1"
+},
+{
+"id": "particle_object",
+"point": "水を飲みます (を object)",
+"cefr": "A1"
+},
+{
+"id": "destination_motion",
+"point": "学校に行きます (に destination)",
+"cefr": "A1"
+},
+{
+"id": "location_action",
+"point": "公園で遊びます (で location of action)",
+"cefr": "A1"
+},
+{
+"id": "past_simple",
+"point": "本を読みました (past ました)",
+"cefr": "A2"
+},
+{
+"id": "negation",
+"point": "高くないです (い-adj negative)",
+"cefr": "A2"
+},
+{
+"id": "imperatives",
+"point": "食べてください (て-form request)",
+"cefr": "A2"
+},
+{
+"id": "present_continuous",
+"point": "写真を撮っています (ている progressive)",
+"cefr": "A2"
+},
+{
+"id": "aspect_resultative_state",
+"point": "窓が開いている (resultant state)",
+"cefr": "A2"
+},
+{
+"id": "modal_permission",
+"point": "食べてもいいです (permission)",
+"cefr": "A2"
+},
+{
+"id": "modal_prohibition",
+"point": "触ってはいけません (prohibition)",
+"cefr": "A2"
+},
+{
+"id": "classifiers_counters",
+"point": "本が三冊あります (counter 冊)",
+"cefr": "A2"
+},
+{
+"id": "comparatives",
+"point": "電車のほうが速いです (comparison)",
+"cefr": "B1"
+},
+{
+"id": "superlatives",
+"point": "海が一番好きです (superlative)",
+"cefr": "B1"
+},
+{
+"id": "experiential_aspect",
+"point": "行ったことがあります (experience)",
+"cefr": "B1"
+},
+{
+"id": "conditional",
+"point": "雨が降ったら (たら conditional)",
+"cefr": "B1"
+},
+{
+"id": "future_going_to",
+"point": "食べようと思います (volitional intention)",
+"cefr": "B1"
+},
+{
+"id": "giving_receiving",
+"point": "友達に本をもらいました (giving/receiving)",
+"cefr": "B1"
+},
+{
+"id": "passive_voice",
+"point": "先生に褒められました (passive)",
+"cefr": "B2"
+},
+{
+"id": "causative",
+"point": "弟に部屋を掃除させました (causative)",
+"cefr": "B2"
+}
+],
+"es": [
+{
+"id": "copula_identity",
+"point": "ser - identity",
+"cefr": "A1"
+},
+{
+"id": "copula_state",
+"point": "estar - location/state",
+"cefr": "A1"
+},
+{
+"id": "noun_gender",
+"point": "gender of nouns (el/la)",
+"cefr": "A1"
+},
+{
+"id": "adjective_agreement",
+"point": "noun-adjective agreement",
+"cefr": "A1"
+},
+{
+"id": "existential",
+"point": "hay - there is/are",
+"cefr": "A1"
+},
+{
+"id": "present_simple",
+"point": "present tense -ar verbs",
+"cefr": "A1"
+},
+{
+"id": "present_simple_er_ir",
+"point": "present -er/-ir verbs",
+"cefr": "A1"
+},
+{
+"id": "prepositions_place",
+"point": "prepositions of place",
+"cefr": "A1"
+},
+{
+"id": "possessives",
+"point": "possessive adjectives (mi/tu/su)",
+"cefr": "A1"
+},
+{
+"id": "present_stem_changing",
+"point": "stem-changing verbs (e>ie, o>ue)",
+"cefr": "A2"
+},
+{
+"id": "gustar_construction",
+"point": "gustar construction",
+"cefr": "A2"
+},
+{
+"id": "present_continuous",
+"point": "estar + gerundio",
+"cefr": "A2"
+},
+{
+"id": "future_going_to",
+"point": "ir a + infinitive (near future)",
+"cefr": "A2"
+},
+{
+"id": "object_pronouns",
+"point": "direct object pronouns",
+"cefr": "A2"
+},
+{
+"id": "reflexive_verbs",
+"point": "reflexive verbs",
+"cefr": "A2"
+},
+{
+"id": "past_simple",
+"point": "preterito (completed past)",
+"cefr": "A2"
+},
+{
+"id": "past_habitual",
+"point": "imperfecto (ongoing/habitual past)",
+"cefr": "B1"
+},
+{
+"id": "past_aspect_contrast",
+"point": "preterito vs imperfecto contrast",
+"cefr": "B1"
+},
+{
+"id": "comparatives",
+"point": "comparatives (mas/menos que)",
+"cefr": "A2"
+},
+{
+"id": "superlatives",
+"point": "superlatives",
+"cefr": "B1"
+},
+{
+"id": "imperatives",
+"point": "commands (imperativo)",
+"cefr": "B1"
+},
+{
+"id": "present_perfect",
+"point": "present perfect (he hecho)",
+"cefr": "B1"
+},
+{
+"id": "future_will",
+"point": "future tense (-e endings)",
+"cefr": "B1"
+},
+{
+"id": "por_para",
+"point": "por vs para",
+"cefr": "B1"
+},
+{
+"id": "subjunctive",
+"point": "present subjunctive (intro)",
+"cefr": "B2"
+}
+],
+"fr": [
+{
+"id": "copula_identity",
+"point": "C'est / Ce sont",
+"cefr": "A1"
+},
+{
+"id": "articles",
+"point": "articles definis et indefinis",
+"cefr": "A1"
+},
+{
+"id": "noun_gender",
+"point": "le genre et le nombre des noms",
+"cefr": "A1"
+},
+{
+"id": "existential",
+"point": "il y a",
+"cefr": "A1"
+},
+{
+"id": "adjective_agreement",
+"point": "les adjectifs qualificatifs (accord)",
+"cefr": "A1"
+},
+{
+"id": "adjective_position",
+"point": "la place de l'adjectif (BAGS)",
+"cefr": "A1"
+},
+{
+"id": "prepositions_place",
+"point": "les prepositions de lieu",
+"cefr": "A1"
+},
+{
+"id": "present_simple",
+"point": "le present des verbes en -er",
+"cefr": "A1"
+},
+{
+"id": "possessives",
+"point": "les adjectifs possessifs",
+"cefr": "A1"
+},
+{
+"id": "quantifiers",
+"point": "les nombres et la quantite",
+"cefr": "A1"
+},
+{
+"id": "present_etre_avoir",
+"point": "les verbes etre et avoir au present",
+"cefr": "A1"
+},
+{
+"id": "partitive_article",
+"point": "l'article partitif (du, de la, de l')",
+"cefr": "A2"
+},
+{
+"id": "present_irregular",
+"point": "present des verbes irreguliers (faire, aller, venir, prendre)",
+"cefr": "A2"
+},
+{
+"id": "reflexive_verbs",
+"point": "les verbes pronominaux",
+"cefr": "A2"
+},
+{
+"id": "future_going_to",
+"point": "aller + infinitif (futur proche)",
+"cefr": "A2"
+},
+{
+"id": "past_simple",
+"point": "le passe compose avec avoir",
+"cefr": "A2"
+},
+{
+"id": "past_simple_etre",
+"point": "le passe compose avec etre (accord)",
+"cefr": "A2"
+},
+{
+"id": "object_pronouns",
+"point": "les pronoms COD et COI",
+"cefr": "B1"
+},
+{
+"id": "pronouns_y_en",
+"point": "les pronoms y et en",
+"cefr": "B1"
+},
+{
+"id": "past_habitual",
+"point": "l'imparfait",
+"cefr": "B1"
+},
+{
+"id": "past_aspect_contrast",
+"point": "passe compose vs imparfait",
+"cefr": "B1"
+},
+{
+"id": "comparatives",
+"point": "le comparatif (plus / moins / aussi ... que)",
+"cefr": "B1"
+},
+{
+"id": "superlatives",
+"point": "le superlatif (le plus / le moins ... de)",
+"cefr": "B1"
+},
+{
+"id": "future_will",
+"point": "le futur simple",
+"cefr": "B2"
+},
+{
+"id": "subjunctive",
+"point": "le subjonctif present",
+"cefr": "B2"
+}
+],
+"zh": [
+{
+"id": "copula_identity",
+"point": "是 (shi) - to be for identity",
+"cefr": "A1"
+},
+{
+"id": "adjective_description",
+"point": "很 + 形容词 adjectival predicate",
+"cefr": "A1"
+},
+{
+"id": "existential",
+"point": "有 (you) existence and possession",
+"cefr": "A1"
+},
+{
+"id": "negation",
+"point": "不 (bu) general negation",
+"cefr": "A1"
+},
+{
+"id": "question_yes_no",
+"point": "吗 (ma) yes/no question particle",
+"cefr": "A1"
+},
+{
+"id": "classifiers_counters",
+"point": "个/张/本 measure words",
+"cefr": "A1"
+},
+{
+"id": "possessives",
+"point": "的 (de) possession and modification",
+"cefr": "A1"
+},
+{
+"id": "demonstratives",
+"point": "这/那 (zhe/na) demonstratives",
+"cefr": "A1"
+},
+{
+"id": "location_static",
+"point": "在 + 地点 to be located at a place",
+"cefr": "A1"
+},
+{
+"id": "numbers_quantity",
+"point": "数字 + 个 + 名词 counting",
+"cefr": "A1"
+},
+{
+"id": "quantity_questions",
+"point": "几/多少 how many / how much",
+"cefr": "A2"
+},
+{
+"id": "aspect_completion",
+"point": "了 (le) completed action / change of state",
+"cefr": "A2"
+},
+{
+"id": "modal_desire",
+"point": "要 + 动词 want to / will",
+"cefr": "A2"
+},
+{
+"id": "modal_ability",
+"point": "会/能/可以 ability and permission",
+"cefr": "A2"
+},
+{
+"id": "present_continuous",
+"point": "正在/在 + 动词 ongoing action now",
+"cefr": "A2"
+},
+{
+"id": "experiential_aspect",
+"point": "过 (guo) experiential aspect",
+"cefr": "A2"
+},
+{
+"id": "aspect_durative",
+"point": "着 (zhe) durative aspect",
+"cefr": "B1"
+},
+{
+"id": "temporal_words",
+"point": "时间词 + 动词 time words, no tense",
+"cefr": "B1"
+},
+{
+"id": "comparatives",
+"point": "比 (bi) comparison",
+"cefr": "B1"
+},
+{
+"id": "comparison_equal",
+"point": "跟 ... 一样 the same as",
+"cefr": "B1"
+},
+{
+"id": "superlatives",
+"point": "最 (zui) superlative",
+"cefr": "B1"
+},
+{
+"id": "resultative_complement",
+"point": "结果补语 resultative complement",
+"cefr": "B2"
+},
+{
+"id": "directional_complement",
+"point": "趋向补语 directional complement",
+"cefr": "B2"
+},
+{
+"id": "ba_construction",
+"point": "把 + 宾语 + 动词 disposal construction",
+"cefr": "B2"
+},
+{
+"id": "topic_comment",
+"point": "话题-评论 topic-comment",
+"cefr": "B2"
+}
+]
+}

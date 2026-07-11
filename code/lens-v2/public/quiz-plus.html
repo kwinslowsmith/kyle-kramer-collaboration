@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Plus · Lens</title>
+<link rel="icon" href="./icon-192.png">
+<style>
+  /* Quiz Plus is an experimental standalone page: it keeps its own warm
+     slideshow look and does NOT use the main app's css/app.css. */
+  :root {
+    --cream: #faf5ec;
+    --paper: #fffdf7;
+    --sage: #8ba888;
+    --sage-deep: #5d7a5a;
+    --ocean: #3f7186;
+    --ocean-deep: #2c5566;
+    --ink: #3a3a35;
+    --soft: #7a776e;
+    --good: #5d8a5a;
+    --bad: #b95f4a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* The `hidden` attribute must win over the display rules below (same fix as
+     app.css) — without this all three views render stacked and the sign-in
+     flow's view switching never visibly happens. */
+  [hidden] { display: none !important; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  /* ── login / gate views ── */
+  .gate {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    gap: 1.2rem;
+  }
+  .gate h1 { font-size: 2.2rem; }
+  .gate p { font-size: 1.15rem; color: var(--soft); max-width: 480px; line-height: 1.6; }
+  .gate button {
+    background: var(--ocean);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: .9rem 2.2rem;
+    font-size: 1.15rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .gate button:hover { background: var(--ocean-deep); }
+  .gate .err { color: var(--bad); font-size: 1rem; }
+  .beta {
+    display: inline-block;
+    background: var(--clay, #c97b5d);
+    background: #c97b5d;
+    color: #fff;
+    border-radius: 50px;
+    padding: .2rem .9rem;
+    font-size: .85rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  /* ── quiz shell ── */
+  #quiz-view { display: flex; flex-direction: column; height: 100%; }
+  #progressbar { height: 7px; background: #e8e0d0; flex-shrink: 0; }
+  #progressfill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--sage), var(--ocean));
+    transition: width .4s ease;
+    border-radius: 0 4px 4px 0;
+  }
+  #stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.2rem 1.5rem;
+    overflow-y: auto;
+  }
+  .slide { max-width: 780px; width: 100%; animation: rise .35s ease; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .photocard {
+    width: 100%;
+    max-height: 34vh;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 3px 14px rgba(90,80,60,.18);
+    margin-bottom: 1.1rem;
+    background: #ece5d6;
+    display: block;
+  }
+  .photocard.loading { min-height: 120px; animation: shimmer 1.2s ease infinite alternate; }
+  @keyframes shimmer { from { opacity: .45; } to { opacity: .9; } }
+  .kicker {
+    font-size: 1rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    margin-bottom: .8rem;
+  }
+  h1 { font-size: 2.7rem; line-height: 1.15; margin-bottom: 1rem; font-weight: 600; }
+  h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 1.2rem; font-weight: 600; }
+  .slide p { font-size: 1.25rem; line-height: 1.6; margin-bottom: .9rem; }
+  .soft { color: var(--soft); }
+  .ko { color: var(--ocean-deep); }
+  .card {
+    background: var(--paper);
+    border-radius: 18px;
+    padding: 1.4rem 1.6rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 10px rgba(90,80,60,.08);
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+  .card .pattern { font-size: 1.5rem; color: var(--ocean-deep); }
+  .qnum { font-size: .95rem; color: var(--soft); margin-bottom: .6rem; letter-spacing: .08em; text-transform: uppercase; }
+  .question { font-size: 1.55rem; line-height: 1.5; margin-bottom: .4rem; }
+  .context { font-size: 1.1rem; color: var(--soft); margin-bottom: 1.2rem; font-style: italic; }
+  .choices { display: grid; gap: .7rem; margin-top: 1.2rem; }
+  .choice {
+    background: var(--paper);
+    border: 2px solid #e5dcc8;
+    border-radius: 14px;
+    padding: .95rem 1.2rem;
+    font-size: 1.3rem;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .15s, transform .1s;
+    font-family: inherit;
+    color: var(--ink);
+  }
+  .choice:hover:not(:disabled) { border-color: var(--sage); transform: translateX(4px); }
+  .choice:disabled { cursor: default; }
+  .choice.correct { border-color: var(--good); background: #eef4ea; }
+  .choice.wrong { border-color: var(--bad); background: #f7ece7; }
+  .feedback {
+    margin-top: 1.1rem;
+    padding: 1rem 1.3rem;
+    border-radius: 14px;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    display: none;
+  }
+  .feedback.show { display: block; animation: rise .3s ease; }
+  .feedback.good { background: #e8f1e4; color: #2f4d2c; }
+  .feedback.bad { background: #f6e7e0; color: #6e3423; }
+  .speak {
+    background: var(--ocean);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: .4rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: .5rem;
+    vertical-align: middle;
+    font-family: inherit;
+  }
+  .speak:hover { background: var(--ocean-deep); }
+  #nav {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem 1.4rem;
+  }
+  #counter { color: var(--soft); font-size: 1rem; }
+  .navbtn {
+    background: var(--sage-deep);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: .8rem 2rem;
+    font-size: 1.15rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s;
+  }
+  .navbtn:hover:not(:disabled) { background: #4a6348; }
+  .navbtn:disabled { background: #cfc9ba; cursor: default; }
+  .navbtn.ghost { background: transparent; color: var(--sage-deep); border: 2px solid var(--sage); }
+  .navbtn.ghost:hover:not(:disabled) { background: #eef2ea; }
+  .unitchip {
+    display: inline-block;
+    background: var(--sage);
+    color: #fff;
+    border-radius: 50px;
+    padding: .3rem 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  table.report { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 1.2rem; }
+  table.report td, table.report th { padding: .7rem .9rem; text-align: left; border-bottom: 1px solid #e8e0d0; }
+  table.report th { color: var(--soft); font-weight: 500; font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; }
+  .bar { background: #e8e0d0; border-radius: 8px; height: 14px; overflow: hidden; min-width: 120px; }
+  .bar > div { height: 100%; border-radius: 8px; background: linear-gradient(90deg, var(--sage), var(--ocean)); }
+  .misslist { list-style: none; }
+  .misslist li { background: var(--paper); border-radius: 12px; padding: .8rem 1.1rem; margin-bottom: .6rem; font-size: 1.15rem; line-height: 1.55; }
+  .scorebig { font-size: 4rem; color: var(--ocean-deep); font-weight: 600; margin: .5rem 0; }
+  @media (max-width: 600px) {
+    h1 { font-size: 2rem; } h2 { font-size: 1.5rem; }
+    .question { font-size: 1.25rem; } .bigko { font-size: 1.8rem; }
+    #stage { padding: 1.2rem 1rem; }
+    #nav { padding: .8rem 1rem 1rem; }
+    .navbtn { padding: .7rem 1.4rem; font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sign-in gate -->
+<div class="gate" id="login-view" hidden>
+  <span class="beta">Experimental</span>
+  <h1>Quiz Plus</h1>
+  <p>A teach-and-test slideshow built from your own Lens photos. Sign in to load your pictures.</p>
+  <button id="google-signin">Sign in with Google</button>
+  <p class="err" id="login-error"></p>
+</div>
+
+<!-- Not-the-owner gate: Quiz Plus is a personal experiment for now -->
+<div class="gate" id="notyou-view" hidden>
+  <span class="beta">Experimental</span>
+  <h1>Not quite yet</h1>
+  <p id="notyou-msg">Quiz Plus is an experimental feature being tested on one account. If it works out, it will roll out to everyone on Lens.</p>
+  <button id="notyou-signout">Sign out</button>
+</div>
+
+<!-- Quiz -->
+<div id="quiz-view" hidden>
+  <div id="progressbar"><div id="progressfill"></div></div>
+  <div id="stage"><div class="slide" id="slidebox"></div></div>
+  <div id="nav">
+    <button class="navbtn ghost" id="backbtn">Back</button>
+    <span id="counter"></span>
+    <button class="navbtn" id="nextbtn">Next</button>
+  </div>
+</div>
+
+<script type="module" src="./js/quiz-plus.js"></script>
+</body>
+</html>
