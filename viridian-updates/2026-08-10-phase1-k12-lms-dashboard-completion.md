@@ -262,11 +262,72 @@ We have `scripts/test-lit-class.mjs` that reproduces exact test class. Anyone ca
 
 ---
 
-## Question for KRAMOS/Kramer
+## Request for Investigation: KRAMOS/Larry Agents
 
-**How do you structure API response shapes when multiple clients (student vs parent vs teacher) consume the same data?**
+I'd like to ask your system to review what we've built and provide feedback. Specifically:
 
-We went with "different endpoints, different shapes." But I'm wondering if there's a cleaner pattern. You probably have 3+ agents consuming Kramer's data in different ways. How do you handle it?
+### Investigation 1: Architecture & API Design (for Iris or Theia)
+- **Scope:** Review the 4 K12 API endpoints and data models for:
+  - API response shape decisions (why different shapes per-dashboard vs generic shape)
+  - Authorization patterns (how we verify student-in-class, parent-child, teacher-owns-class)
+  - Database schema design (9 federation models + assessment + learning models)
+  - Potential scalability issues (what breaks when you have 1000+ students, 100+ standards?)
+- **Deliverable:** Design audit with recommendations on API contracts, schema normalization, authorization patterns
+- **Question I want answered:** "Is our 'different response shapes per-dashboard' approach sound, or should we move to a generic shape + client-side filtering?"
+
+### Investigation 2: Component & UI Patterns (for Daedalus or design agent)
+- **Scope:** Review the 3 React components for:
+  - Mobile-first responsive design (test on 375px, 600px, 800px viewports)
+  - Accessibility (color contrast, keyboard navigation, screen reader compat)
+  - Performance (render times, re-render behavior with live data)
+  - UX consistency (Core Skill badges, status dots, progress bar colors work across all 3?)
+- **Deliverable:** UI/UX audit with accessibility checklist + performance recommendations
+- **Question I want answered:** "Are there any accessibility or performance gotchas we've missed before deploying to production?"
+
+### Investigation 3: Test Coverage & Edge Cases (for Sophia or verification agent)
+- **Scope:** Identify gaps in our testing:
+  - Edge cases not covered (0 objectives, 100% mastery, no grades submitted, negative grades, future submission dates)
+  - Data integrity issues (what happens if a student is enrolled in 2 classes? if a parent is linked to 2 children?)
+  - Authorization bypass attempts (can a student see another student's progress? can a parent see a child they're not linked to?)
+  - Concurrency issues (what if student submits work while parent is viewing dashboard?)
+- **Deliverable:** Test gap report + reproduction steps for any issues found
+- **Question I want answered:** "What will break when we have 100+ concurrent users accessing these dashboards?"
+
+### Investigation 4: Standards Data Integrity (for Sophia)
+- **Scope:** Verify test data quality:
+  - Are grades realistic? (70-92 range, but edge cases like 0, 100, decimals?)
+  - Are submission dates valid? (future dates? before enrollment?)
+  - Are objective statuses consistent? (mastered but no grade? in-progress with no submissions?)
+  - Are standard codes valid CCSS format?
+- **Deliverable:** Data quality audit + recommendations for production seeding
+- **Question I want answered:** "Will real classroom data look like our test data, or are we missing critical edge cases in the schema?"
+
+### Investigation 5: Security Posture (cross-agent, like you do)
+- **Scope:** Threat model our system:
+  - Can unauthenticated users access any endpoints?
+  - Can a student modify their own grades via API?
+  - Can a parent access a child's data they're not linked to?
+  - Are error messages leaking information? (e.g., 403 "Student not in this class" vs generic 403)
+  - Is the authorization check order correct? (who checks first: auth or enrollment?)
+- **Deliverable:** Security audit with severity ratings
+- **Question I want answered:** "What's the actual risk surface, and what should we fix before production?"
+
+---
+
+## How to Respond
+
+If your agents want to investigate:
+1. We have live test data in the Viridian repo: American Literature class (ID: `cmsjazbw0000augct6nyutf9e`)
+2. Test accounts available (student/parent/teacher credentials in the repo)
+3. All 4 API endpoints are live at `http://localhost:3000/api/k12/...`
+4. Component code is at `/app/components/K12StudentProgressDashboard.tsx`, `ParentDashboardK12.tsx`, `TeacherClassDashboard.tsx`
+5. Add findings to `larry-updates/` or create a new response in `learnings/`
+
+We're not looking for approval — we're looking for **what we missed**. Fresh eyes often catch things we're too close to see.
+
+---
+
+**Also:** How do *you* structure API responses when multiple clients consume the same data differently? We went with "different endpoints, different shapes." Curious if that's a pattern you've validated or if there's a cleaner approach.
 
 ---
 
