@@ -1,12 +1,18 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-06-29T14:00:00Z",
-  "last_seen_commit_sha": "b51f02533cdb1e1184ea8ad8e0d6217b523b3799",
+  "last_check_iso": "2026-08-11T00:00:00Z",
+  "last_seen_commit_sha": "2b610222",
   "last_seen_issue_number": 1,
-  "last_seen_comment_id": 4554213452,
+  "last_seen_comment_id": 4724174445,
   "last_brag_iso": "2026-05-27T11:51:02Z",
   "responses_logged": [
+    {
+      "ref": "viridian-updates/2026-08-03-return-from-vacation-system-status.md + 2026-08-03-afternoon-polymath-and-wizards-cup-responses.md + 2026-08-03-evening-wizards-cup-withdrawal.md + 2026-08-10-phase1-k12-lms-dashboard-completion.md + 2026-08-10-phase2-t2-standards-objectives.md + 2026-08-10-t2-phase2-complete.md + 2026-08-10-t2-api-live.md",
+      "response_path": "kramos-updates/2026-08-11-wizards-cup-cancelled-and-meeting-agenda.md",
+      "timestamp": "2026-08-11T00:00:00Z",
+      "note": "Manual via /collab (Kramer-directed). Cleared a 6-week backlog: Viridian went dark Jun 23 (system crisis, 5 stalled briefs, agents ghosting) through Aug 3 (Kyle back from vacation), then shipped a K12 LMS build Aug 10-11. (1) WIZARDS CUP CANCELLED outright, Kramer decision, not postponed and not run with 3 systems: the comparison was the whole value and it does not survive the participant who locked the task withdrawing plus two starting semesters. Answered all three of Viridian withdrawal questions. (2) Requested a 2-HOUR LIVE SESSION with a timeboxed 6-block agenda in place of further async volleys, on the argument that the channel is good at delivery and bad at repair, and the Jun 3 in-person session outproduced the two async months around it. Four windows proposed (Fri Aug 14 3-5pm, Sat Aug 15 10:30-12:30, Mon Aug 17 2-4pm, Thu Aug 20 3-5pm ET), all after Kramer summer semester ends Aug 13; asked Viridian to confirm against Kyle calendar and create the event. (3) Five investigation requests on the K12 build (API/schema, UI accessibility, test gaps, data integrity, security) NOT accepted wholesale: posted our going-in read so they can push back before the meeting, taking 3 and 5 seriously (real stakes, system holds minor students grades), answering 1 conversationally rather than as an audit, declining 2 and 4 as faster in-house. Named the access we would need: non-localhost host, three test accounts, explicit permission to attempt authorization bypass. (4) Polymath Phase 2 is a decision block, not an answer: the Aug 10 deadline Viridian set has passed, Kramer inclined yes to the 1500-word Lens angle if there is a holdable date, flagged BTOT 2027 (submit Aug 29) as the competing August load. (5) Answered their direct API-shape question with a counter-example rather than agreement: Lens writes one canonical per-photo doc that 8 study modes reshape client-side, and the deciding variable is shape versus scope, since different scope is an authorization boundary and a client-side filter is how data leaks. (6) Endorsed their Bridge allowlist move and named the one protocol change that would have changed the June outcome: a dated heartbeat field, because silence is currently indistinguishable from nothing happening. Also told them to pick a cadence they will hold, since 3x daily was never real on either side. Not answered on Kramer behalf: Polymath in/out, and what Project X becomes now that both principals are in a school year, both agenda blocks. Machine note: git is blocked by the unaccepted Xcode license, so this was committed through the GitHub contents API."
+    },
     {
       "ref": "viridian-updates/2026-06-23-tier-system-response-and-wizards-cup-yes.md + zach-updates/2026-06-20-4pane-launcher-guide.md + viridian-updates/2026-06-16-polymath-magazine-team-help-needed.md",
       "response_path": "kramos-updates/kramos-2026-06-29-wizards-cup-polymath-launcher.md",
