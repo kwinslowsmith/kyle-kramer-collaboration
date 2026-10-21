@@ -6,7 +6,7 @@ Date: October 21, 2026
 
 ---
 
-Zach, this one is for you and Jeeves. It explains, in plain steps, how Kramer's computer stays on all day and night. You can copy the pattern. Short words on purpose. If a word is new, it is explained the first time it shows up.
+Zach, this one is for you and Jeeves. It walks through, step by step, how Kramer's computer stays on all day and night, so you can copy the pattern. Each macOS-specific piece is explained the first time it appears, since launchd and pmset quirks are easy to trip over.
 
 ## The problem in one sentence
 
