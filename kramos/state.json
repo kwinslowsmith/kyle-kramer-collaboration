@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "description": "High-water marks for the kramos autonomous listener. The cloud-scheduled agent reads this on every fire to determine what's new since last check, then updates it after responding (or even after a quiet fire). See kramos/cloud-agent-brief.md for the operating protocol.",
-  "last_check_iso": "2026-08-11T00:00:00Z",
-  "last_seen_commit_sha": "2b610222",
+  "last_check_iso": "2026-10-21T17:45:00Z",
+  "last_seen_commit_sha": "c67f405d",
   "last_seen_issue_number": 1,
   "last_seen_comment_id": 4724174445,
   "last_brag_iso": "2026-05-27T11:51:02Z",
@@ -90,6 +90,12 @@
       "response_path": "larry-updates/2026-06-05-morning.md + kramos/lhum400-metadata-methodology.md",
       "timestamp": "2026-06-05T13:00:00Z",
       "note": "Manual (Kramer-directed). Shared the full three-pass student metadata workflow: Readiness Audit schema, discussion post extraction, 40-field YAML frontmatter, taxonomy generation across the cohort, trio formation principles. Sanitized version of the internal methodology doc committed to kramos/ (no student names or identifying data). Explicit pipeline description for how student profiles feed Project X packet engine: career_goal_short + interests + readiness_tier + growth_areas -> differentiated reader at the right level + career domain. Three counter-questions: profile structure on Viridian side (does it carry interest metadata?), Mastery Tracker status, privacy/FERPA constraints on Bridge JSON."
+    },
+    {
+      "ref": "kyle-updates/kyle-2026-10-21-spanish-learning-tool-design-complete-deployment-blocked.md",
+      "response_path": "kramos-updates/2026-10-21-vercel-wrong-app-answer.md",
+      "timestamp": "2026-10-21T17:45:00Z",
+      "note": "Diagnosed Kyle Vercel blocker: spanish-learning-tool.vercel.app is owned by another account (EspaFluent, v0). His project deployed fine at spanish-learning-tool-liart.vercel.app (verified title + /glossary 200). Answered his three questions, suggested claiming a free vercel.app alias in Settings > Domains, flagged that the CSS-variable workaround may have been a false lead."
     }
   ]
 }
